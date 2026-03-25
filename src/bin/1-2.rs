@@ -1,11 +1,12 @@
+use cryptopals::utils::read_buffer;
+
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("Enter first buffer");
-    let first = std::read_line()?;
+    let first = read_buffer()?;
     println!("Enter second buffer");
-    let second = std::read_line()?;
+    let second = read_buffer()?;
     if first.len() != second.len() {
-        println!("buffer length is not matched!");
-        return Err(Box::new(()) as Box<dyn std::error::Error>);
+        return Err("buffer length is not matched!".into());
     }
     Ok(())
 }
